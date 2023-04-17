@@ -1,0 +1,75 @@
+.pic-review {
+    width: 150px;
+    grid-area: pic;
+  }
+  .title-review { 
+    width: 300px;
+    grid-area: title; 
+  }
+  
+  .designer-review { 
+    width: 150px;
+    grid-area: designer; 
+  }
+  
+  .category-review { 
+    text-align: center;
+    width: 450px;
+    grid-area: category;
+    font-size: 0.75em;
+  }
+
+  .created-review {
+    text-align: center;
+    width: 150px;
+    grid-area: created;
+    font-size: 0.75em;
+  }
+
+  .owner-review {
+    text-align: left;
+    width: 300px;
+    grid-area: owner;
+  }
+  
+  .grid-review-display {
+    margin: auto;
+    width: 600px;
+    display: grid;
+    grid-template-areas:
+      'pic title title designer'
+      'pic category category category'
+      'pic owner owner created';
+    background-color: transparent;
+    padding: 10px;
+  }
+  
+  .grid-review-display > div {
+    background-color: rgba(8, 1, 1, 0.8);
+  }
+
+  .review-card-title {
+    text-align: left;
+    font-size: 1.25em;
+    padding: 0.5em;
+  }
+
+  .review-card-designer {
+    text-align: right;
+    font-size: 1em;
+    padding: 0.5em;
+  }
+
+  .review-card-owner {
+    text-align: left;
+    font-size: 0.5em;
+    padding: 0.5em;
+  }
+
+  .review-card-created {
+    text-align: right;
+    font-size: 0.5em;
+    padding: 0.5em;
+  }
+
+
