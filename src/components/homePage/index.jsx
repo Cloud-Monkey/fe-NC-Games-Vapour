@@ -6,7 +6,7 @@ function HomePage({ reviewList, loading }) {
   }
   return (
     <div>
-      <ul>
+      <ul className="review-list">
         {reviewList.map((review) => {
           return <ReviewCard key={review.review_id} review={review} />;
         })}
