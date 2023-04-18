@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { getReviews } from "./apis";
+import { getReviews } from "./utils/apis";
 import PageHeader from "./components/PageHeader";
 import HomePage from "./components/homePage";
 import { Routes, Route } from "react-router-dom";
