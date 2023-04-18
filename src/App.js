@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import PageHeader from "./components/PageHeader";
-import ReviewCard from "./components/ReviewCard";
 import { getReviews } from "./apis";
+import HomePage from "./components/homePage";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [reviewList, setReviewList] = useState([]);
@@ -17,12 +17,14 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <PageHeader className="App-header" />
-      <ul>
-        {reviewList.map((review) => {
-          return <ReviewCard key={review.review_id} review={review} />;
-        })}
-      </ul>
+      <Routes>
+        <Route
+          path="/reviews"
+          element={
+            <HomePage reviewList={reviewList} setReviewList={setReviewList} />
+          }
+        />
+      </Routes>
     </div>
   );
 }
