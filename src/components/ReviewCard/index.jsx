@@ -18,12 +18,7 @@ function ReviewCard({ review, loading }) {
       </div>
 
       <div className="pic-review">
-        <img
-          src={review_img_url}
-          alt={`gameplay of ${title}`}
-          height={150}
-          width={150}
-        />
+        <img src={review_img_url} alt={`gameplay of ${title}`} />
       </div>
       <div className="created-review">
         <div className="review-card-created">Date Created: {formattedDate}</div>

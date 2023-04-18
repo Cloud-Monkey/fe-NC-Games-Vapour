@@ -37,7 +37,7 @@
   .grid-review-display {
     border-radius: 4px;
     margin: auto;
-    width: 600px;
+    width: 100%;
     display: grid;
     grid-template-areas:
       'pic title title designer'
@@ -74,5 +74,12 @@
     font-size: 0.75em;
     padding: 0.5em;
   }
+
+  .pic-review > img {
+    height: 150px;
+    width: 150px;
+  }
+
+
 
 
