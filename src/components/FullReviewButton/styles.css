@@ -1,3 +1,18 @@
+.full-review-button {
+    background-color: bisque;
+    color: black;
+    font-size: 0.75em;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
 .full-review-button:hover {
-    background-color: bisque
+    background-color: rgb(252, 201, 140);
+}
+
+.full-review-button:focus {
+    background-color: rgb(252, 201, 140);
 }
