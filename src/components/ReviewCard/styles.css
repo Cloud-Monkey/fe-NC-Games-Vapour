@@ -1,4 +1,5 @@
 .pic-review {
+    /* border-radius: 4px; */
     width: 150px;
     grid-area: pic;
   }
@@ -13,17 +14,18 @@
   }
   
   .category-review { 
-    text-align: center;
+    text-align: right;
     width: 450px;
     grid-area: category;
     font-size: 0.75em;
+    padding: 0px;
   }
 
   .created-review {
     text-align: center;
     width: 150px;
     grid-area: created;
-    font-size: 0.75em;
+    font-size: 0.9em;
   }
 
   .owner-review {
@@ -33,6 +35,7 @@
   }
   
   .grid-review-display {
+    border-radius: 4px;
     margin: auto;
     width: 600px;
     display: grid;
@@ -68,7 +71,7 @@
 
   .review-card-created {
     text-align: right;
-    font-size: 0.5em;
+    font-size: 0.75em;
     padding: 0.5em;
   }
 

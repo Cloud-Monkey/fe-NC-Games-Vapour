@@ -5,12 +5,7 @@ const ncGamesApi = axios.create({
 });
 
 export const getReviews = () => {
-  return ncGamesApi
-    .get("/reviews")
-    .then(({ data }) => {
-      return data.review;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  return ncGamesApi.get("/reviews").then(({ data }) => {
+    return data.review;
+  });
 };
