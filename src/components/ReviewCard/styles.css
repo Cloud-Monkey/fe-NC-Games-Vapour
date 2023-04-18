@@ -38,6 +38,11 @@
       'pic owner owner created';
     background-color: transparent;
     padding: 10px;
+    cursor: pointer;
+  }
+
+  .grid-review-display:hover {
+    background-color: rgb(244, 203, 154);
   }
   
   .grid-review-display > div {
@@ -58,7 +63,7 @@
 
   .review-card-owner {
     text-align: left;
-    font-size: 0.5em;
+    font-size: 0.75em;
     padding: 0.5em;
   }
 

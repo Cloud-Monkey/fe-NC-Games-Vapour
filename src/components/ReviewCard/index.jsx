@@ -21,7 +21,7 @@ function ReviewCard({ review, loading }) {
         <img src={review_img_url} alt={`gameplay of ${title}`} />
       </div>
       <div className="created-review">
-        <div className="review-card-created">Date Created: {formattedDate}</div>
+        <div className="review-card-created">Created: {formattedDate}</div>
       </div>
       <div className="owner-review">
         <div className="review-card-owner">Owner: {owner}</div>
