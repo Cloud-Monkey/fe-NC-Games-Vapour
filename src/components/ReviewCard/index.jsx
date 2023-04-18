@@ -1,12 +1,14 @@
 import "./styles.css";
 
-function ReviewCard({ review }) {
+function ReviewCard({ review, loading }) {
   const { category, title, created_at, designer, owner, review_img_url } =
     review;
   const dateString = new Date(created_at);
   const formattedDate = dateString.toDateString();
 
-  return (
+  return loading ? (
+    <li>Loading...</li>
+  ) : (
     <li className="grid-review-display">
       <div className="title-review">
         <h2 className="review-card-title">{title}</h2>
