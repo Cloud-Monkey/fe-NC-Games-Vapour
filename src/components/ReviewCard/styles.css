@@ -1,21 +1,16 @@
 .pic-review {
-    /* border-radius: 4px; */
-    /* width: 150px; */
     grid-area: pic;
   }
   .title-review { 
-    /* width: 300px; */
     grid-area: title; 
   }
   
   .designer-review { 
-    /* width: 150px; */
     grid-area: designer; 
   }
   
   .category-review { 
     text-align: right;
-    /* width: 450px; */
     grid-area: category;
     font-size: 0.75em;
     padding: 0px;
@@ -23,21 +18,18 @@
 
   .created-review {
     text-align: center;
-    /* width: 150px; */
     grid-area: created;
     font-size: 0.9em;
   }
 
   .owner-review {
     text-align: left;
-    /* width: 300px; */
     grid-area: owner;
   }
   
   .grid-review-display {
     border-radius: 4px;
     margin-inline: auto;
-    /* width: 100%; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
