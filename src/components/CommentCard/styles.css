@@ -1,0 +1,18 @@
+  .grid-comment-display {
+    border-radius: 4px;
+    border: solid;
+    max-width: 800px;
+    margin-inline: auto;
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'title title designer'
+      'category category link'
+      'owner owner created';
+    background-color: transparent;
+    padding: 10px;
+  }
+  
+  .grid-review-display > div {
+    background-color: rgba(8, 1, 1, 0.8);
+  }

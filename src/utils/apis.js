@@ -12,7 +12,12 @@ export const getReviews = () => {
 
 export const getReviewById = (reviewId) => {
   return ncGamesApi.get(`/reviews/${reviewId}`).then(({ data }) => {
-    console.log(data.review[0]);
     return data.review[0];
+  });
+};
+
+export const getComments = (reviewId) => {
+  return ncGamesApi.get(`/reviews/${reviewId}/comments`).then(({ data }) => {
+    return data.comments;
   });
 };
