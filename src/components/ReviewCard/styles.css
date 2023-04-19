@@ -10,7 +10,7 @@
   }
   
   .category-review { 
-    text-align: right;
+    text-align: left;
     grid-area: category;
     font-size: 0.75em;
     padding: 0px;
@@ -26,23 +26,24 @@
     text-align: left;
     grid-area: owner;
   }
+
+  .link-review {
+    text-align: right;
+    grid-area: link;
+  }
   
   .grid-review-display {
     border-radius: 4px;
+    max-width: 800px;
     margin-inline: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
       'pic title title designer'
-      'pic category category category'
+      'pic category category link'
       'pic owner owner created';
     background-color: transparent;
     padding: 10px;
-    cursor: pointer;
-  }
-
-  .grid-review-display:hover {
-    background-color: rgb(244, 203, 154);
   }
   
   .grid-review-display > div {
@@ -52,28 +53,33 @@
   .review-card-title {
     text-align: left;
     font-size: 1.25em;
-    padding: 0.5em;
+    padding: 10px;
   }
 
   .review-card-designer {
     text-align: right;
     font-size: 1em;
-    padding: 0.5em;
+    padding: 10px;
   }
 
   .review-card-owner {
     text-align: left;
     font-size: 0.75em;
-    padding: 0.5em;
+    padding: 10px;
   }
 
   .review-card-created {
     text-align: right;
     font-size: 0.75em;
-    padding: 0.5em;
+    padding: 10px;
+  }
+
+  .review-card-category {
+    padding: 10px;
   }
 
   .pic-review > img {
+    object-fit: cover;
     height: 100%;
     width: 100%;
   }

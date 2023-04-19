@@ -1,15 +1,22 @@
+import FullReviewButton from "../FullReviewButton";
 import "./styles.css";
 
-function ReviewCard({ review, loading }) {
-  const { category, title, created_at, designer, owner, review_img_url } =
-    review;
+function ReviewCard({ review, isFullReview }) {
+  const {
+    review_id,
+    category,
+    title,
+    created_at,
+    designer,
+    owner,
+    review_img_url,
+  } = review;
+
   const dateString = new Date(created_at);
   const formattedDate = dateString.toDateString();
 
-  return loading ? (
-    <li>Loading...</li>
-  ) : (
-    <li className="grid-review-display">
+  return (
+    <div className="grid-review-display">
       <div className="title-review">
         <h2 className="review-card-title">{title}</h2>
       </div>
@@ -26,8 +33,13 @@ function ReviewCard({ review, loading }) {
       <div className="owner-review">
         <div className="review-card-owner">Owner: {owner}</div>
       </div>
-      <div className="category-review">Category: {category}</div>
-    </li>
+      <div className="category-review">
+        <div className="review-card-category">Category: {category}</div>
+      </div>
+      <div className="link-review">
+        {!isFullReview && <FullReviewButton reviewId={review_id} />}
+      </div>
+    </div>
   );
 }
 

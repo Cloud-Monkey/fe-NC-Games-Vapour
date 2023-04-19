@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import { getReviews } from "./utils/apis";
 import PageHeader from "./components/PageHeader";
 import HomePage from "./components/homePage";
-import { Routes, Route } from "react-router-dom";
+import ReviewFullPage from "./components/ReviewFullPage";
+import "./App.css";
 
 function App() {
   const [reviewList, setReviewList] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setLoading(true);
-    getReviews().then((response) => {
-      setLoading(false);
-      setReviewList(response);
-    });
+    getReviews()
+      .then((response) => {
+        setReviewList(response);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   }, []);
+
   return (
     <div className="App">
       <PageHeader className="App-header" />
@@ -39,6 +47,7 @@ function App() {
             />
           }
         />
+        <Route path="/reviews/:review_id" element={<ReviewFullPage />} />
       </Routes>
     </div>
   );
