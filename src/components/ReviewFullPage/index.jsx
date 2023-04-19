@@ -8,7 +8,7 @@ import "./styles.css";
 function ReviewFullPage() {
   const [review, setReview] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [commentList, setCommentList] = useState(null);
+  const [commentList, setCommentList] = useState([]);
   const [loadingComments, setLoadingComments] = useState(true);
   const reviewId = useParams().review_id;
 
@@ -56,7 +56,7 @@ function ReviewFullPage() {
       ) : (
         <div>
           {commentList.length === 0 ? (
-            <div>No comment yet!</div>
+            <div>No comments yet!</div>
           ) : (
             commentList.map((comment) => {
               return <CommentCard comment={comment} />;
