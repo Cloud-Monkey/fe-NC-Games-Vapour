@@ -8,7 +8,7 @@ import CommentBox from "../CommentBox/CommentBox";
 
 import "./styles.css";
 
-function ReviewFullPage() {
+function ReviewFullPage({ user }) {
   const [review, setReview] = useState(null);
   const [loading, setLoading] = useState(true);
   const [commentList, setCommentList] = useState([]);
@@ -55,7 +55,7 @@ function ReviewFullPage() {
       <div className="review-body-container">
         <p className="review-body">{review.review_body}</p>
       </div>
-      <CommentBox>Post Comment</CommentBox>
+      <CommentBox user={user} reviewId={reviewId} />
       {loadingComments ? (
         <div>Loading comments...</div>
       ) : (
