@@ -1,7 +1,6 @@
 import "./styles.css";
 
 function CommentCard({ comment }) {
-  console.log(comment, "<------------ Comment Card comments");
   const { author, body, created_at } = comment;
   const dateString = new Date(created_at);
   const formattedDate = dateString.toDateString();
