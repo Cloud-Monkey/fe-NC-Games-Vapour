@@ -1,5 +1,5 @@
   .grid-comment-display {
-    border-radius: 4px;
+    font-size: 0.65em;
     border: solid;
     max-width: 800px;
     margin-inline: auto;
@@ -9,10 +9,11 @@
       'title title designer'
       'category category link'
       'owner owner created';
-    background-color: transparent;
+    background-color:rgba(8, 1, 1, 0.8);
     padding: 10px;
   }
   
   .grid-review-display > div {
+    font-size: 0.75em;
     background-color: rgba(8, 1, 1, 0.8);
   }

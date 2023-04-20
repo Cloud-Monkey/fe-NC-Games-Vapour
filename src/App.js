@@ -9,8 +9,6 @@ import "./App.css";
 function App() {
   const [reviewList, setReviewList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [plusButtonDisabled, setPlusDisabled] = useState(false);
-  const [minusButtonDisabled, setMinusDisabled] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -49,17 +47,7 @@ function App() {
             />
           }
         />
-        <Route
-          path="/reviews/:review_id"
-          element={
-            <ReviewFullPage
-              plusButtonDisabled={plusButtonDisabled}
-              minusButtonDisabled={minusButtonDisabled}
-              setMinusDisabled={setMinusDisabled}
-              setPlusDisabled={setPlusDisabled}
-            />
-          }
-        />
+        <Route path="/reviews/:review_id" element={<ReviewFullPage />} />
       </Routes>
     </div>
   );
