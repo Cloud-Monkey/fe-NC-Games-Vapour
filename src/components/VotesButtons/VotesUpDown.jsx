@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { patchVotes } from "../../utils/apis";
 import "./styles.css";
 
@@ -10,6 +10,7 @@ function VotesUpDown({
   plusButtonDisabled,
 }) {
   const [count, setCount] = useState(review.votes);
+  const [error, setError] = useState(null);
 
   const handlePlusClick = () => {
     setCount((currentVotes) => currentVotes + 1);
@@ -18,6 +19,7 @@ function VotesUpDown({
     patchVotes(review.review_id, 1).catch((error) => {
       console.log(error);
       setCount((currentVotes) => currentVotes - 1);
+      setError("Failed to vote. Please try again later.");
     });
   };
 
@@ -28,17 +30,19 @@ function VotesUpDown({
     patchVotes(review.review_id, -1).catch((error) => {
       console.log(error);
       setCount((currentVotes) => currentVotes + 1);
+      setError("Failed to vote. Please try again later.");
     });
   };
 
   return (
     <div className="votes-button-container">
-      <button onClick={handleMinusClick} disabled={minusButtonDisabled}>
-        -
-      </button>
-      <span> Votes: {count} </span>
+      {error && <p>{error}</p>}
       <button onClick={handlePlusClick} disabled={plusButtonDisabled}>
         +
+      </button>
+      <span> Votes: {count} </span>
+      <button onClick={handleMinusClick} disabled={minusButtonDisabled}>
+        -
       </button>
     </div>
   );
