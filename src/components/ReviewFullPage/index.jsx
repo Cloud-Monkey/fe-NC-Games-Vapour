@@ -6,7 +6,12 @@ import CommentCard from "../CommentCard";
 import VotesUpDown from "../VotesButtons/VotesUpDown";
 import "./styles.css";
 
-function ReviewFullPage() {
+function ReviewFullPage({
+  minusButtonDisabled,
+  plusButtonDisabled,
+  setMinusDisabled,
+  setPlusDisabled,
+}) {
   const [review, setReview] = useState(null);
   const [loading, setLoading] = useState(true);
   const [commentList, setCommentList] = useState([]);
@@ -39,7 +44,6 @@ function ReviewFullPage() {
         setLoadingComments(false);
       });
   }, [reviewId]);
-  console.log(review);
   if (loading || review === null) {
     return <div>Loading...</div>;
   }
@@ -50,7 +54,15 @@ function ReviewFullPage() {
       </Link>
       <ReviewCard review={review} isFullReview />
       <div>
-        <VotesUpDown review={review} votes={votes} setVotes={setVotes}>
+        <VotesUpDown
+          setPlusDisabled={setPlusDisabled}
+          setMinusDisabled={setMinusDisabled}
+          minusButtonDisabled={minusButtonDisabled}
+          plusButtonDisabled={plusButtonDisabled}
+          review={review}
+          votes={votes}
+          setVotes={setVotes}
+        >
           Votes
         </VotesUpDown>
       </div>
