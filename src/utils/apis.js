@@ -16,8 +16,16 @@ export const getReviewById = (reviewId) => {
   });
 };
 
-export const getComments = (reviewId) => {
+export const getComments = (reviewId, incV) => {
   return ncGamesApi.get(`/reviews/${reviewId}/comments`).then(({ data }) => {
     return data.comments;
   });
+};
+
+export const patchVotes = (reviewId, incVotes) => {
+  return ncGamesApi
+    .patch(`/reviews/${reviewId}`, { inc_votes: incVotes })
+    .then(({ data }) => {
+      return data;
+    });
 };

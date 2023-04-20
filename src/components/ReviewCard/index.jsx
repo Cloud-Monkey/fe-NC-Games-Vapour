@@ -2,6 +2,7 @@ import FullReviewButton from "../FullReviewButton";
 import "./styles.css";
 
 function ReviewCard({ review, isFullReview }) {
+  console.log(review, "<-------Review in reviewCard");
   const {
     review_id,
     category,
