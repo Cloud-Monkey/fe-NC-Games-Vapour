@@ -18,3 +18,8 @@
 .new-comment-submit {
   margin: 1em;
 }
+
+.error-msg-comment {
+  font-size: 0.75em;
+  align-items: start;
+}

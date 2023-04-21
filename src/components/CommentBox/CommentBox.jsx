@@ -4,6 +4,7 @@ import "./styles.css";
 
 function CommentBox({ user, reviewId }) {
   const [comment, setComment] = useState("");
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -20,6 +21,7 @@ function CommentBox({ user, reviewId }) {
       };
       postComment(reviewId, postBody).catch((error) => {
         console.log(error);
+        setError("Comment failed, please try again later.");
       });
       setComment("");
     }
@@ -29,6 +31,7 @@ function CommentBox({ user, reviewId }) {
 
   return (
     <div className="comment-box-container">
+      {error && <p className="error-msg-comment">{error}</p>}
       <form onSubmit={handleSubmit} className="comment-box-container">
         <div>
           <label htmlFor="add-comment-textfield" className="comment-box-label">
