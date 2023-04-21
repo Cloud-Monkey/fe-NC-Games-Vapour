@@ -2,19 +2,17 @@ import React, { useState } from "react";
 import { patchVotes } from "../../utils/apis";
 import "./styles.css";
 
-function VotesUpDown({
-  review,
-  setMinusDisabled,
-  setPlusDisabled,
-  minusButtonDisabled,
-  plusButtonDisabled,
-}) {
+function VotesUpDown({ review }) {
   const [count, setCount] = useState(review.votes);
   const [error, setError] = useState(null);
+  const [plusButtonDisabled, setPlusDisabled] = useState(false);
+  const [minusButtonDisabled, setMinusDisabled] = useState(false);
 
   const handlePlusClick = () => {
     setCount((currentVotes) => currentVotes + 1);
-    setPlusDisabled(true);
+    if (count === review.votes) {
+      setPlusDisabled(true);
+    }
     setMinusDisabled(false);
     patchVotes(review.review_id, 1).catch((error) => {
       console.log(error);
@@ -25,7 +23,9 @@ function VotesUpDown({
 
   const handleMinusClick = () => {
     if (count >= 1) setCount((currentVotes) => currentVotes - 1);
-    setMinusDisabled(true);
+    if (count === review.votes) {
+      setMinusDisabled(true);
+    }
     setPlusDisabled(false);
     patchVotes(review.review_id, -1).catch((error) => {
       console.log(error);

@@ -4,19 +4,15 @@ import { getReviewById, getComments } from "../../utils/apis";
 import ReviewCard from "../ReviewCard";
 import CommentCard from "../CommentCard";
 import VotesUpDown from "../VotesButtons/VotesUpDown";
+import CommentBox from "../CommentBox/CommentBox";
+
 import "./styles.css";
 
-function ReviewFullPage({
-  minusButtonDisabled,
-  plusButtonDisabled,
-  setMinusDisabled,
-  setPlusDisabled,
-}) {
+function ReviewFullPage({ user }) {
   const [review, setReview] = useState(null);
   const [loading, setLoading] = useState(true);
   const [commentList, setCommentList] = useState([]);
   const [loadingComments, setLoadingComments] = useState(true);
-  const [votes, setVotes] = useState(0);
   const reviewId = useParams().review_id;
 
   useEffect(() => {
@@ -54,27 +50,22 @@ function ReviewFullPage({
       </Link>
       <ReviewCard review={review} isFullReview />
       <div>
-        <VotesUpDown
-          setPlusDisabled={setPlusDisabled}
-          setMinusDisabled={setMinusDisabled}
-          minusButtonDisabled={minusButtonDisabled}
-          plusButtonDisabled={plusButtonDisabled}
-          review={review}
-          votes={votes}
-          setVotes={setVotes}
-        >
-          Votes
-        </VotesUpDown>
+        <VotesUpDown review={review}>Votes</VotesUpDown>
       </div>
       <div className="review-body-container">
         <p className="review-body">{review.review_body}</p>
       </div>
+      <CommentBox
+        setCommentList={setCommentList}
+        user={user}
+        reviewId={reviewId}
+      />
       {loadingComments ? (
         <div>Loading comments...</div>
       ) : (
         <div>
           {commentList.length === 0 ? (
-            <div>No comments yet!</div>
+            <div></div>
           ) : (
             commentList.map((comment) => {
               return <CommentCard comment={comment} />;

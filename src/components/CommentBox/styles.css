@@ -1,0 +1,25 @@
+.comment-box-container {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  margin: auto;
+}
+
+.comment-box-label {
+  font-size: 0.75em;
+}
+
+.text-area-for-post {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 1em;
+  font-size: 0.65em;
+}
+
+.new-comment-submit {
+  margin: 1em;
+}
+
+.error-msg-comment {
+  font-size: 0.75em;
+  align-items: start;
+}

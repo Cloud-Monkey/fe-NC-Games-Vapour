@@ -29,3 +29,11 @@ export const patchVotes = (reviewId, incVotes) => {
       return data;
     });
 };
+
+export const postComment = (reviewId, postBody) => {
+  return ncGamesApi
+    .post(`/reviews/${reviewId}/comments`, postBody)
+    .then(({ data }) => {
+      return data;
+    });
+};

@@ -6,11 +6,17 @@ import HomePage from "./components/homePage";
 import ReviewFullPage from "./components/ReviewFullPage";
 import "./App.css";
 
+const happyUser = {
+  username: "happyamy2016",
+  name: "Amy Happy",
+  avatar_url:
+    "https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729",
+};
+
 function App() {
   const [reviewList, setReviewList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [plusButtonDisabled, setPlusDisabled] = useState(false);
-  const [minusButtonDisabled, setMinusDisabled] = useState(false);
+  const [user, setUser] = useState(happyUser);
 
   useEffect(() => {
     setLoading(true);
@@ -51,14 +57,7 @@ function App() {
         />
         <Route
           path="/reviews/:review_id"
-          element={
-            <ReviewFullPage
-              plusButtonDisabled={plusButtonDisabled}
-              minusButtonDisabled={minusButtonDisabled}
-              setMinusDisabled={setMinusDisabled}
-              setPlusDisabled={setPlusDisabled}
-            />
-          }
+          element={<ReviewFullPage user={user} />}
         />
       </Routes>
     </div>
