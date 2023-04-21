@@ -61,7 +61,7 @@ function ReviewFullPage({ user }) {
       ) : (
         <div>
           {commentList.length === 0 ? (
-            <div>No comments yet!</div>
+            <div></div>
           ) : (
             commentList.map((comment) => {
               return <CommentCard comment={comment} />;
