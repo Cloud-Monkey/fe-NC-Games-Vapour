@@ -55,7 +55,11 @@ function ReviewFullPage({ user }) {
       <div className="review-body-container">
         <p className="review-body">{review.review_body}</p>
       </div>
-      <CommentBox user={user} reviewId={reviewId} />
+      <CommentBox
+        setCommentList={setCommentList}
+        user={user}
+        reviewId={reviewId}
+      />
       {loadingComments ? (
         <div>Loading comments...</div>
       ) : (

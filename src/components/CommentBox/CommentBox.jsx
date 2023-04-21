@@ -2,7 +2,7 @@ import { useState } from "react";
 import { postComment } from "../../utils/apis";
 import "./styles.css";
 
-function CommentBox({ user, reviewId }) {
+function CommentBox({ user, reviewId, setCommentList }) {
   const [comment, setComment] = useState("");
   const [error, setError] = useState(null);
 
@@ -19,10 +19,18 @@ function CommentBox({ user, reviewId }) {
         body: comment,
         username: user.username,
       };
-      postComment(reviewId, postBody).catch((error) => {
-        console.log(error);
-        setError("Comment failed, please try again later.");
-      });
+      postComment(reviewId, postBody)
+        .then((response) => {
+          setCommentList((currentComment) => {
+            const newComments = [response.comment, ...currentComment];
+            return newComments;
+          });
+          return response;
+        })
+        .catch((error) => {
+          console.log(error);
+          setError("Comment failed, please try again later.");
+        });
       setComment("");
     }
   };
